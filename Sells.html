@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>View Sells</title>
+    <!-- Add any necessary styles or include CSS links here -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        thead {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: 1px solid #007bff;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your existing HTML content -->
+  <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>View Sells</title>
+    <!-- Add any necessary styles or include CSS links here -->
+</head>
+
+<body>
+    <!-- Navbar or other navigation elements -->
+
+    <div class="container">
+        <h2>Sells List</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Mobile Number</th>
+                    <th>Date</th>
+                    <th>Medicine Name</th>
+                    <th>Cost</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sell : ${sells}">
+                    <td th:text="${sell.customername}"></td>
+                    <td th:text="${sell.mobileno}"></td>
+                    <td th:text="${sell.date}"></td>
+                    <td th:text="${sell.medicinename}"></td>
+                    <td th:text="${sell.cost}"></td>
+                    <td th:text="${sell.quantity}"></td>
+                    <td th:text="${sell.total}"></td>
+                    <td>
+                        <a th:href="@{/sells/edit/{id}(id=${sell.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/sells/{id}(id=${sell.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+</body>
+
+</html>

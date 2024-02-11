@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Products</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 20px;
+			background-color: #f4f4f4;
+		}
+
+		h2 {
+			color: #333;
+		}
+
+		form {
+			max-width: 400px;
+			margin: 20px auto;
+			padding: 15px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		label {
+			display: block;
+			margin-bottom: 8px;
+		}
+
+		input {
+			width: 100%;
+			padding: 8px;
+			margin-bottom: 10px;
+			box-sizing: border-box;
+		}
+
+		button {
+			background-color: #4caf50;
+			color: #fff;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		a {
+			display: block;
+			margin-top: 10px;
+			text-decoration: none;
+			color: #333;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="success-container" align="center">
+		<p th:text="${successMessage}"></p>
+	</div>
+	<center>
+		<h2>Add Product</h2>
+	</center>
+	<form th:object="${products}" th:action="@{/saveproduct}" method="post">
+		<label for="producttype">Product Type:</label>
+		<input type="text" id="producttype" th:field="*{producttype}" required><br>
+		<label for="code">Code:</label>
+		<input type="text" id="code" th:field="*{code}" required><br>
+		<label for="total_stock">Total Stock:</label>
+		<input type="text" id="total_stock" th:field="*{total_stock}" required><br>
+		<label for="companyname">Company Name:</label>
+		<input type="text" id="companyname" th:field="*{companyname}" list="md" required>
+		<label for="cost">Cost:</label>
+		<input type="text" id="cost" th:field="*{cost}" required><br>
+		<label for="expirydate">Mfg Date:</label>
+		<input type="date" id="mfgdate" th:field="*{mfgdate}" required><br>
+		<label for="expirydate">Expiry Date:</label>
+		<input type="date" id="expirydate" th:field="*{expirydate}" required><br>
+		<label for="description">Desccription:</label>
+		<input type="text" id="description" th:field="*{description}" required><br>
+		<button type="submit">Save</button>
+		<button type="reset">Reset</button>
+		<div class="link-container">
+			<a href="/home">Go to Home Page</a>
+		</div>
+
+	</form>
+
+
+</body>
+
+</html>

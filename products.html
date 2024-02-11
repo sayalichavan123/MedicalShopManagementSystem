@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Medical Shop Management System</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f9fa;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav {
+			background-color: #343a40;
+			color: white;
+			padding: 10px;
+			text-align: center;
+		}
+
+		nav a {
+			color: white;
+			text-decoration: none;
+		}
+
+		div.container {
+			margin: 20px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #343a40;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		a.btn {
+			text-decoration: none;
+			padding: 8px;
+			margin-right: 5px;
+		}
+
+		a.btn-primary {
+			background-color: #007bff;
+			color: white;
+		}
+
+		a.btn-danger {
+			background-color: #dc3545;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav>
+		<a href="#"></a>
+		<div>
+			<ul>
+				<li>
+					<a th:href="@{/products}">Medical Shop Management</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<th>Product Type</th>
+					<th>Code</th>
+					<th>Total Stock</th>
+					<th>Medicine Type</th>
+					<th>Company Name</th>
+					<th> Cost</th>
+					<th>mfgdate</th>
+					<th>expirydate</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="p: ${products}">
+					<td th:text="${p.producttype}"></td>
+					<td th:text="${p.code}"></td>
+					<td th:text="${p.total_stock}"></td>
+					<td th:text="${p.companyname}"></td>
+					<td th:text="${p.cost}"></td>
+					<td th:text="${p.mfgdate}"></td>
+					<td th:text="${p.expirydate}"></td>
+					<td th:text="${p.description}"></td>
+					<td>
+						<a th:href="@{/products/update/{id}(id=${p.id})}" class="btn btn-warning">Update</a>
+
+						<a th:href="@{/products/{id}(id=${p.id})}" class="btn btn-danger">Delete</a>
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>

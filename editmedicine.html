@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Update Medicine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="success-container" align="center">
+        <p th:text="${successMessage}"></p>
+    </div>
+    <center>
+        <h2>Update Medicine</h2>
+    </center>
+    <form action="/medicines/{id}" method="POST" th:action="@{/medicines/{id}(id=${medicine.id})}" th:object="${medicine}">
+        <label for="medicineName">Medicine Name:</label>
+        <input type="text" id="medicineName" th:field="*{medicineName}" required><br>
+        <label for="cost">Cost:</label>
+        <input type="text" id="cost" th:field="*{cost}" required><br>
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" th:field="*{companyName}" required><br>
+        <label for="medicinetype">Medicine Type:</label>
+        <input type="text" id="medicinetype" th:field="*{medicinetype}" list="md" required><br>
+        <label for="mfgdate">Mfg Date:</label>
+        <input type="date" id="mfgdate" th:field="*{mfgdate}" required><br>
+        <label for="expirydate">Expiry Date:</label>
+        <input type="date" id="expirydate" th:field="*{expirydate}" required><br>
+
+        <button type="submit">Update</button>
+        <button type="reset">Reset</button>
+        <div class="link-container">
+			<a href="/home">Go to Home Page</a>
+		</div>
+    </form>
+</body>
+
+</html>
